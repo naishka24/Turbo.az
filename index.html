@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="src/input.css" />
+  <link rel="stylesheet" href="src/output.css" />
+  <title>Document</title>
+  <style>
+    *{font:;}
+    #part1, #part2{
+      ul li {
+        &:hover {color: #ca1016; cursor: pointer;};
+      }}
+      nav a {
+        &:hover {color: #f5cecd; cursor: pointer;}
+      }
+  </style>
+</head>
+<body>
+  <header class="">
+    <div class="bg-[#f6f7fa] px-10 py-3 ">
+      <div class="max-w-[1000px] mx-auto flex justify-between items-center flex-col xs:flex-row  ">
+        <div id="part1">
+          <ul class="flex gap-2 text-[#8d94ad] font-light">
+            <li>Tap.az</li>
+            <li>Bina.az</li>
+            <li>Boss.az</li>
+          </ul>
+        </div>
+        <div id="part2">
+          <ul class=" flex flex-wrap justify-center gap-2 text-[#8d94ad]">
+            <li class="text-black">Dəstək: (012) 526-47-47</li>
+            <li>Yardım</li>
+            <li>RU</li>
+            <li onclick="likedSepet()"><i class="fa-solid fa-heart"></i> Seçilmişlər</li>
+            <li><i class="fa-solid fa-user"></i> Giriş</li>
+          </ul>
+        </div>
+        <div id="likedStuff" class="hidden bg-white absolute w-[500px] h-full p-4 right-0 top-10 shadow-xl z-[1000]">
+          <div class=" flex justify-around items-center gap-3">
+            <p class="font-bold underline text-[20px]">Seçilmişlər</p>
+            <button class="bg-[#7ed321] text-white rounded-[7px] p-[10px] hover:bg-[#85c01f] hover: cursor-pointer">Delete All</button>
+          </div>
+          <div id="likedDiv" class="max-w-[300px] w-[100%] text-center m-5 overflow-hidden shadow-2xl"></div>
+          </div>
+      </div>
+    </div>
+    <div class=" bg-[#ca1016] text-white px-10 py-3 ">
+      <div class="max-w-[1000px] mx-auto flex justify-center items-center flex-wrap xs:justify-between">
+        <nav class="flex flex-wrap justify-center items-center gap-2">
+          <a class="font-bold text-xl">TURBO.AZ</a>
+          <a>Bütün elanlar</a>
+          <a>Dilerlər</a> 
+          <a>Avtokataloq</a>
+          <a>Moto</a>
+          <a>Ehtiyat hissələr və aksesuarlar</a>
+          <a>İcarə</a>
+        </nav>
+        <button class="bg-[#7ed321] rounded-[7px] p-[10px] hover:bg-[#85c01f] hover: cursor-pointer "><i class="border-2 rounded-[60%] p-[1px] fa-solid fa-plus"></i> Yeni elan </button>
+      </div>
+    </div>
+    <div id="filter" class="bg-[#ebedf2] p-7">
+      <div class="max-w-[1000px] w-[100%] mx-auto flex flex-wrap gap-3">
+        <div class="flex w-[100%] gap-4 justify-center flex-wrap xs:flex-nowrap s:justify-between">
+          <select id="marka" name="brand" onchange="handleSelect(this)" class="min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] h-[46px] p-[5px] xs:w-[25%] bg-white border-[1px] border-[#dfe3e8] rounded-[7px] text-[#8d94ad]">
+          <option>Marka</option>
+        </select>
+  
+        <select id="model" name="Model" onchange="handleSelect(this)" class="min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] h-[46px] p-[5px] xs:w-[25%] bg-[#f5f6f9] border-[1px] border-[#dfe3e8] rounded-[7px] text-[#8d94ad]">
+          <option>Model</option>
+        </select>
+        
+        <div class="min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%] h-[46px] p-x-[10px] bg-white border-[1px] border-[#dfe3e8] rounded-[7px] flex justify-center">
+          <button class="max-w-[70px] w-[100%] text-[#8d94ad] cursor-pointer" type="submit">Hamısı</button>
+          <button class="max-w-[70px] w-[100%] text-[#8d94ad] cursor-pointer border-[#dfe3e8] border-x-[1px]" type="submit">Yeni</button>
+          <button class="max-w-[91px] w-[100%] text-[#8d94ad] cursor-pointer" type="submit">Sürülmüş</button>
+        </div>
+
+        <select id="city" name="city" onchange="handleSelect(this)" class="min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] h-[46px] p-[5px] xs:w-[25%] bg-white border-[1px] border-[#dfe3e8] rounded-[7px] text-[#8d94ad]">
+          <option>Şəhər</option>
+        </select>
+        </div>
+        <div class="flex w-[100%] gap-4 justify-center flex-wrap xs:flex-nowrap s:justify-between">
+          <div class="flex justify-between min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%] ">
+          <input class="max-w-[115px] w-[100%] h-[46px] p-[10px] bg-white border-[1px] border-[#dfe3e8] rounded-l-[7px] text-[#8d94ad]" type="text" placeholder="Qiymet, min." />
+          <input class="max-w-[115px] w-[100%] h-[46px] p-[10px] bg-white border-[1px] border-[#dfe3e8] rounded-r-[7px] text-[#8d94ad]" type="text" placeholder="maks. " />
+        </div>
+        <div class="flex justify-between min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%] gap-3">
+          <select id="val" name="val" onchange="handleSelect(this)" class="max-w-[85px] min-w-[50px] w-[100%] bg-white h-[46px] border-[1px] border-[#dfe3e8] rounded-[7px] cursor-pointer"><option>AZN</option></select>
+          <button class="max-w-[70px] min-w-[50px] w-[100%] bg-white h-[46px] border-[1px] border-[#dfe3e8] rounded-[7px] cursor-pointer hover:border-[#000] duration-[.4s]">Kredit</button>
+          <button class="max-w-[70px] min-w-[50px] w-[100%] bg-white h-[46px] border-[1px] border-[#dfe3e8] rounded-[7px] cursor-pointer hover:border-[#000] duration-[.4s]">Barter</button>
+        </div>
+        <select id="banType" name="banType" onchange="handleSelect(this)" class="min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%] h-[46px] p-[5px]  bg-white border-[1px] border-[#dfe3e8] rounded-[7px] text-[#8d94ad] cursor-pointer">
+          <option>Ban növü</option>
+        </select>
+
+        <div class="flex justify-between min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%]">
+          <select id="il" name="year" onchange="handleSelect(this)" class="max-w-[115px] w-[100%] h-[46px] p-[5px]  bg-white border-[1px] border-[#dfe3e8] rounded-l-[7px] text-[#8d94ad] cursor-pointer">
+            <option>İl, min.</option>
+          </select>
+          <select id="maks" name="year" onchange="handleSelect(this)" class="max-w-[115px] w-[100%] h-[46px] p-[5px]  bg-white border-[1px] border-[#dfe3e8] rounded-r-[7px] text-[#8d94ad] cursor-pointer">
+            <option>maks.</option>
+          </select>
+        </div>
+        </div>
+        <div class="flex w-[100%] gap-4 justify-between items-center p-y-3">
+          <div>
+            <p>Bu gün: <span class="text-[#4b88f9] cursor-pointer"> 1291 yeni elan</span></p>
+          </div>
+          <div class=" flex justify-between items-center gap-5 xs:w-[40%]">
+            <a onclick="sifirla()" class="text-[#8d94ad] cursor-pointer">Sıfırla</a>
+            <a class="text-[#ca1016] cursor-pointer">Daha çox filt <i class="fa-solid fa-angle-down"></i></a>
+            <button class="max-w-[200px] min-w-[100px] w-[100%] h-[50px] bg-[#ca1016] text-white rounded-[7px] hover:bg-[#b80c13]">Elanları göster</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="bg-[#f1f3f7] p-7 border-b-[1px] border-[#eaebf2]">
+        <div class="max-w-[1000px] mx-auto">
+          <h1 class="font-medium uppercase text-[18px]">Premium Elanlar</h1>
+        </div>
+    </div>
+      <div class="bg-[#f5f6f9] p-7">
+        <div id="article" class="max-w-[1000px] mx-auto flex justify-center xs:justify-start flex-wrap gap-3"></div>
+    </div>
+    <div class="text-center p-3">
+      <button id="btn" class="bg-[#85c01f] cursor-pointer text-white px-3.5 py-1.5 rounded-[5px]" onclick="artir()">+ 8 elave et!</button>
+    </div>
+  </main>
+  <script src="js/data.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
