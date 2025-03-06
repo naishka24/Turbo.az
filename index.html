@@ -38,7 +38,7 @@
             <li><i class="fa-solid fa-user"></i> Giriş</li>
           </ul>
         </div>
-        <div id="likedStuff" class="hidden bg-white absolute w-[500px] h-full p-4 right-0 top-10 shadow-xl z-[1000]">
+        <div id="likedStuff" class="hidden bg-white absolute w-[500px] h-full p-4 right-0 top-18 xs:top-12 shadow-xl z-[1000]">
           <div class=" flex justify-around items-center gap-3">
             <p class="font-bold underline text-[20px]">Seçilmişlər</p>
             <button class="bg-[#7ed321] text-white rounded-[7px] p-[10px] hover:bg-[#85c01f] hover: cursor-pointer">Delete All</button>
@@ -83,9 +83,9 @@
         </select>
         </div>
         <div class="flex w-[100%] gap-4 justify-center flex-wrap xs:flex-nowrap s:justify-between">
-          <div class="flex justify-between min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%] ">
-          <input class="max-w-[115px] w-[100%] h-[46px] p-[10px] bg-white border-[1px] border-[#dfe3e8] rounded-l-[7px] text-[#8d94ad]" type="text" placeholder="Qiymet, min." />
-          <input class="max-w-[115px] w-[100%] h-[46px] p-[10px] bg-white border-[1px] border-[#dfe3e8] rounded-r-[7px] text-[#8d94ad]" type="text" placeholder="maks. " />
+          <div class="flex min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%] ">
+          <input class=" w-[100%] h-[46px] p-[10px] bg-white border-[1px] border-[#dfe3e8] rounded-l-[7px] text-[#8d94ad]" type="text" placeholder="Qiymet, min." />
+          <input class=" w-[100%] h-[46px] p-[10px] bg-white border-[1px] border-[#dfe3e8] rounded-r-[7px] text-[#8d94ad]" type="text" placeholder="maks. " />
         </div>
         <div class="flex justify-between min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%] gap-3">
           <select id="val" name="val" onchange="handleSelect(this)" class="max-w-[85px] min-w-[50px] w-[100%] bg-white h-[46px] border-[1px] border-[#dfe3e8] rounded-[7px] cursor-pointer"><option>AZN</option></select>
@@ -96,11 +96,11 @@
           <option>Ban növü</option>
         </select>
 
-        <div class="flex justify-between min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%]">
-          <select id="il" name="year" onchange="handleSelect(this)" class="max-w-[115px] w-[100%] h-[46px] p-[5px]  bg-white border-[1px] border-[#dfe3e8] rounded-l-[7px] text-[#8d94ad] cursor-pointer">
+        <div class="flex min-w-[170px] w-[100%] 2xs:w-[50%] 2xs:max-w-[230px] xs:w-[25%]">
+          <select id="il" name="year" onchange="handleSelect(this)" class=" w-[100%] h-[46px] p-[5px]  bg-white border-[1px] border-[#dfe3e8] rounded-l-[7px] text-[#8d94ad] cursor-pointer">
             <option>İl, min.</option>
           </select>
-          <select id="maks" name="year" onchange="handleSelect(this)" class="max-w-[115px] w-[100%] h-[46px] p-[5px]  bg-white border-[1px] border-[#dfe3e8] rounded-r-[7px] text-[#8d94ad] cursor-pointer">
+          <select id="maks" name="year" onchange="handleSelect(this)" class="w-[100%] h-[46px] p-[5px]  bg-white border-[1px] border-[#dfe3e8] rounded-r-[7px] text-[#8d94ad] cursor-pointer">
             <option>maks.</option>
           </select>
         </div>

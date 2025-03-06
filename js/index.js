@@ -90,6 +90,7 @@ function sifirla() {
   il.innerHTML += new Set(ilArr[0])
   banType.innerHTML += new Set(banTypeArr[0])
   // maksArr.innerHTML += new Set(ilArr[0])
+  data = zapaz
   show()
 }
 
